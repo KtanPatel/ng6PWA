@@ -1,0 +1,49 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html",
+        "/*.css",
+        "/*.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }, {
+    "name": "offline",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "urls": [
+      "https://fonts.googleapis.com/**"
+    ],
+    "resources": {
+      "files": [
+        "/offline.html"
+      ]
+    }
+  }],
+  "dataGroups": [{
+    "name": "api",
+    "urls": [
+      "https://www.techiediaries.com/api/data.json",
+      "https://api.chucknorris.io/jokes/random"
+    ],
+    "cacheConfig": {
+      "maxSize": 20,
+      "maxAge": "1h",
+      "timeout": "5s",
+      "strategy": "freshness"
+    }
+  }]
+}
