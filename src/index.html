@@ -19,7 +19,27 @@
   <noscript>
     Please enable JavaScript to run this application.
   </noscript>
+  <div class="offline-notification">
+    It looks like you're offline.
+    <div class="offline-notification_explanation">
+      The app will continue to work but you won't get any new data from the internet until you reconnect.
+    </div>
+  </div>
   <app-root></app-root>
+  <script>
+    window.addEventListener("load", function () {
+      function handleNetworkChange(event) {
+        if (navigator.onLine) {
+          document.body.classList.remove("offline");
+        } else {
+          document.body.classList.add("offline");
+        }
+      }
+      window.addEventListener("online", handleNetworkChange);
+      window.addEventListener("offline", handleNetworkChange);
+    });
+
+  </script>
 </body>
 
 </html>
